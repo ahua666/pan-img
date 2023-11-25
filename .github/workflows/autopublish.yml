@@ -31,15 +31,15 @@ jobs:
 #        run: git push origin main
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push to GitHub
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: '.'
-          message: 'update package.json'
-          push: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-#      - name: Push Changes
-#        run: git push origin main
+#      - name: Push to GitHub
+#        uses: EndBug/add-and-commit@v9
+#        with:
+#          add: '.'
+#          message: 'update package.json'
+#          push: true
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Push Changes
+        run: git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
