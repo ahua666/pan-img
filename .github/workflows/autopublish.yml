@@ -19,11 +19,14 @@ jobs:
           node-version: "18.x"
           registry-url: https://registry.npmjs.org/
       - name: Bump version and push tag
-        run: |
-            npm version patch -m "Bump version to %s"
-            git push --follow-tags
+        run: npm version patch
         env:
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Push to GitHub
+        uses: EndBug/add-and-commit@v7.2.1
+        with:
+          branch: main
+          message: 'feat: publish npm package'
