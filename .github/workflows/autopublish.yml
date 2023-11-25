@@ -27,12 +27,14 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: Check Git Status
         run: git status
-#      - name: Push to GitHub
-#        uses: EndBug/add-and-commit@v9
-#        with:
+      - name: Push to GitHub
+        uses: EndBug/add-and-commit@v9
+        with:
 #          add: 'package.json'
-#          message: 'update package.json'
-#          push: true
+          message: 'update package.json'
+          push: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - name: Push Changes
         run: git push origin main
         env:
