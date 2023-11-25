@@ -14,9 +14,9 @@ jobs:
         run: |
             git config --global user.name 'ahua666'
             git config --global user.email '3156027735@qq.com'
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: 18
           registry-url: https://registry.npmjs.org/
       - name: Bump version and push tag
         run: npm version patch
@@ -28,5 +28,6 @@ jobs:
       - name: Push to GitHub
         uses: EndBug/add-and-commit@v9
         with:
-          branch: main
-          message: 'feat: publish npm package'
+          add: 'package.json'
+          message: 'update package.json'
+          push: true
