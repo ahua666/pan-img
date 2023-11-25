@@ -42,4 +42,4 @@ jobs:
       - name: Push Changes
         run: git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
