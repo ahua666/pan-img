@@ -10,10 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Configure Git
+        run: |
+            git config --global user.name 'ahua666'
+            git config --global user.email '3156027735@qq.com'
       - uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "18.x"
           registry-url: https://registry.npmjs.org/
+      - name: Bump version and push tag
+        run: |
+            npm version patch -m "Bump version to %s"
+            git push --follow-tags
+        env:
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
