@@ -25,6 +25,8 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Check Git Status
+        run: git status
       - name: Push to GitHub
         uses: EndBug/add-and-commit@v9
         with:
