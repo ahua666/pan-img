@@ -26,7 +26,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: Push to GitHub
-        uses: add-and-commit@v9
+        uses: EndBug/add-and-commit@v9
         with:
           branch: main
           message: 'feat: publish npm package'
