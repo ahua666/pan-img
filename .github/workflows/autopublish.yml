@@ -16,7 +16,7 @@ jobs:
             git config --global user.email '3156027735@qq.com'
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - name: Bump version and push tag
         run: npm version patch -m "Bump version to %s"
